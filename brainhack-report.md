@@ -7,7 +7,7 @@ author:
 
 - initials: EE
   surname: Earl
-  firstname: E.
+  firstname: Eric
   email: earl@ohsu.edu
   affiliation: aff1
   corref: aff1
@@ -36,7 +36,7 @@ gigascience-ref: REFXXX
 ...
 
 #Introduction
-To convert the Human Connectome Project (HCP) Minimal Preprocessing Pipelines into Nipype code.
+The goal was to convert the Human Connectome Project (HCP) Minimal Preprocessing Pipelines into Nipype code.
 
 The HCP minimal preprocessing pipelines \cite{Glasser2013} represent a significant advance in image processing pipelines in our time. They provide preprocessed volume and surface data in native and atlas space, for both functional and structural data. Nipype is an open source neuroimaging project for designing imaging pipelines which has been around since 2011 and provides many excellent features for provenance and reliability of processing pipelines. Together, these two pieces of software would allow for a more robust, more flexible synergy of pipeline design and operability.
 
@@ -65,7 +65,8 @@ The first goal was to train the would-be Nipype developers on the Nipype python 
 
 
 #Results
-The scope of the project was too big for two days of on and off coding, even among eleven developers.  However, a collaborative team of interested Nipype developers were trained and are ready to continue collaborating across seven institutions on a vastly beneficial project to all of our work.
+The scope of the project was too big for two days of on and off coding, even among eleven developers.  However, this turnout of developers during an open hackathon demonstrates the importance of trying to fuse these two systems (Nipype and the HCP pipelines) to work together.
+
 
 # Conclusions
-This is where the conclusions go.
+More work is needed to truly contribute back to the HCP Pipelines (https://github.com/Washington-University/Pipelines), but a collaborative team of interested Nipype developers were trained and are ready to continue collaborating across seven institutions on a vastly beneficial project to all of our work.
