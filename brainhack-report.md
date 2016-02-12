@@ -48,7 +48,7 @@ gigascience-ref: REFXXX
 | Marianne Reddan | University of Colorado, Boulder, USA | marianne.reddan@colorado.edu |
 | Anne-Lise Goddings | University College London, United Kingdom | algoddings@doctors.org.uk |
 | Javier Gonzalez-Castillo | National Institute of Mental Health, USA | javier.gonzalez-castillo@nih.gov |
-| Chris Gorgolewski | Stanford University, USA | chrisgor@stanford.edu |
+| Krzysztof J. Gorgolewski | Stanford University, USA | chrisgor@stanford.edu |
 
 #Introduction
 The goal was to convert the Human Connectome Project (HCP) Minimal Preprocessing Pipelines into Nipype code.
