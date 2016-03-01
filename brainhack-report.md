@@ -35,45 +35,58 @@ bibliography: brainhack-report
 gigascience-ref: REFXXX
 ...
 
-#Contributors
-| Contributor | Institution | Email |
-| --- | --- | --- |
-| Eric Earl | Oregon Health & Science University, USA | earl@ohsu.edu |
-| Damion Demeter | Oregon Health & Science University, USA | demeter@ohsu.edu |
-| Kate Mills | Oregon Health & Science University, USA | millska@ohsu.edu |
-| Glad Mihai | University of Greifswald, Germany | paulglad.mihai@uni-greifswald.de |
-| Luka Ruzic | Duke University, USA | luka.ruzic@duke.edu |
-| Nick Ketz | University of Colorado Boulder, USA | nick.ketz@gmail.com |
-| Andrew Reineberg | University of Colorado Boulder, USA | andrew.reineberg@colorado.edu |
-| Marianne Reddan | University of Colorado, Boulder, USA | marianne.reddan@colorado.edu |
-| Anne-Lise Goddings | University College London, United Kingdom | algoddings@doctors.org.uk |
-| Javier Gonzalez-Castillo | National Institute of Mental Health, USA | javier.gonzalez-castillo@nih.gov |
-| Krzysztof J. Gorgolewski | Stanford University, USA | chrisgor@stanford.edu |
-
 #Introduction
 The goal was to convert the Human Connectome Project (HCP) Minimal Preprocessing Pipelines into Nipype code.
 
 The HCP minimal preprocessing pipelines \cite{Glasser2013} represent a significant advance in image processing pipelines in our time. They provide preprocessed volume and surface data in native and atlas space, for both functional and structural data. Nipype is an open source neuroimaging project for designing imaging pipelines which has been around since 2011 and provides many excellent features for provenance and reliability of processing pipelines. Together, these two pieces of software would allow for a more robust, more flexible synergy of pipeline design and operability.
 
 #Approach
-The first goal was to train the would-be Nipype developers on the Nipype python standards for writing and running interfaces.  Distributing this knowledge from two experts to nine novices over two days was not an easy beginning task.  Once trained, the plan was to implement the HCP scripts into Nipype interfaces from the top-level inward to the sub-level scripts. The secondary goal was to make these sub-level scripts more flexible and require less specific scans to run the pipelines. The collection of nine ultimate pipelines to implement were with or without T1s or T2s and with or without Fieldmap or Reverse-Phase-Encode EPIs as seen in the below table.
+The first goal was to train the would-be Nipype developers on the Nipype python standards for writing and running interfaces.  Distributing this knowledge from two experts to nine novices over two days was not an easy beginning task.  Once trained, the plan was to implement the HCP scripts into Nipype interfaces from the top-level inward to the sub-level scripts. The secondary goal was to make these sub-level scripts more flexible and require less specific scans to run the pipelines. The collection of nine ultimate pipelines to implement were with or without T1s or T2s and with or without Fieldmap or Reverse-Phase-Encode EPIs as seen in Table \ref{pipetable}.
 
-| EPI | T1 | T2 | Diffusion Field Map | Reverse Phase Encode EPI |
-| --- | --- | --- | --- | --- |
-| N | N | N | 1 | 0 |
-| N | N | 0 | 1 | 0 |
-| N | 0 | N | 1 | 0 |
-| N | N | N | 0 | N |
-| N | N | 0 | 0 | N |
-| N | 0 | N | 0 | N |
-| N | N | N | 0 | 0 |
-| N | N | 0 | 0 | 0 |
-| N | 0 | N | 0 | 0 |
 
+\begin{table*}[t!]
+\caption{\label{pipetable}Nine pipelines to be implemented.}
+\begin{tabular}{l l l l l}
+ \hline\noalign{\smallskip}
+  EPI & T1 & T2 & Diffusion Field Map & Reverse Phase Encode EPI \\
+    \hline\noalign{\smallskip}
+  N & N & N & 1 & 0 \\
+  N & N & 0 & 1 & 0 \\
+  N & 0 & N & 1 & 0 \\
+  N & N & N & 0 & N \\
+  N & N & 0 & 0 & N \\
+  N & 0 & N & 0 & N \\
+  N & N & N & 0 & 0 \\
+  N & N & 0 & 0 & 0 \\
+  N & 0 & N & 0 & 0 \\
+  \noalign{\smallskip}\hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t!]
+\caption{\label{collabtable}Contributors}
+\begin{tabular}{l l l}
+ \hline\noalign{\smallskip}
+  Contributor & Institution & Email \\
+    \hline\noalign{\smallskip}
+ Eric Earl & Oregon Health \& Science University, USA & earl@ohsu.edu \\
+ Damion Demeter & Oregon Health \& Science University, USA & demeter@ohsu.edu \\
+ Kate Mills & Oregon Health \& Science University, USA & millska@ohsu.edu \\
+ Glad Mihai & University of Greifswald, Germany & paulglad.mihai@uni-greifswald.de \\
+ Luka Ruzic & Duke University, USA & luka.ruzic@duke.edu \\
+ Nick Ketz & University of Colorado Boulder, USA & nick.ketz@gmail.com \\
+ Andrew Reineberg & University of Colorado Boulder, USA & andrew.reineberg@colorado.edu \\
+ Marianne Reddan & University of Colorado, Boulder, USA & marianne.reddan@colorado.edu \\
+ Anne-Lise Goddings & University College London, United Kingdom & algoddings@doctors.org.uk \\
+ Javier Gonzalez-Castillo & National Institute of Mental Health, USA & javier.gonzalez-castillo@nih.gov \\
+ Krzysztof J. Gorgolewski & Stanford University, USA & chrisgor@stanford.edu \\
+  \noalign{\smallskip}\hline
+\end{tabular}
+\end{table*}
 
 #Results
-The scope of the project was too big for two days of on and off coding, even among eleven developers.  However, this turnout of developers during an open hackathon demonstrates the importance of trying to fuse these two systems (Nipype and the HCP pipelines) to work together.
+The scope of the project was too big for two days of on and off coding, even among eleven developers (see Table \ref{collabtable}).  However, this turnout of developers during an open hackathon demonstrates the importance of trying to fuse these two systems (Nipype and the HCP pipelines) to work together.
 
 
 # Conclusions
-More work is needed to truly contribute back to the HCP Pipelines (https://github.com/Washington-University/Pipelines), but a collaborative team of interested Nipype developers were trained and are ready to continue collaborating across seven institutions on a vastly beneficial project to all of our work.
+More work is needed to truly contribute back to the HCP Pipelines\footnote{\url{https://github.com/Washington-University/Pipelines}}, but a collaborative team of interested Nipype developers were trained and are ready to continue collaborating across seven institutions on a vastly beneficial project to all of our work.
