@@ -100,15 +100,65 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Human Connectome Project to Nipype}
+\title{Human Connectome Project Minimal Preprocessing Pipelines to Nipype}
 \vskip2ex
-\projectURL{Project URL: \url{http://github.com/hcp\_nipype/hackathon}}
+\projectURL{Project URL: \url{https://github.com/ericearl/hcp2nipype-hack2015/}}
 
 \author[
 addressref={aff1},
 corref={aff1},
 email={earl@ohsu.edu}
-]{\inits{EE} \fnm{E.} \snm{Earl}}
+]{\inits{EE} \fnm{Eric} \snm{Earl}}
+\author[
+addressref={aff1},
+%
+email={demeter@ohsu.edu}
+]{\inits{DD} \fnm{Damion} \snm{Demeter}}
+\author[
+addressref={aff1},
+%
+email={millska@ohsu.edu}
+]{\inits{KM} \fnm{Kate} \snm{Mills}}
+\author[
+addressref={aff2},
+%
+email={paulglad.mihai@uni-greifswald.de}
+]{\inits{GM} \fnm{Glad} \snm{Mihai}}
+\author[
+addressref={aff3},
+%
+email={luka.ruzic@duke.edu}
+]{\inits{GM} \fnm{Luka} \snm{Ruzic}}
+\author[
+addressref={aff4},
+%
+email={nick.ketz@gmail.com}
+]{\inits{NK} \fnm{Nick} \snm{Ketz}}
+\author[
+addressref={aff4},
+%
+email={andrew.reineberg@colorado.edu}
+]{\inits{AR} \fnm{Andrew} \snm{Reineberg}}
+\author[
+addressref={aff4},
+%
+email={marianne.reddan@colorado.edu}
+]{\inits{MR} \fnm{Marianne} \snm{Reddan}}
+\author[
+addressref={aff5},
+%
+email={algoddings@doctors.org.uk}
+]{\inits{ALG} \fnm{Anne-Lise} \snm{Goddings}}
+\author[
+addressref={aff6},
+%
+email={javier.gonzalez-castillo@nih.gov}
+]{\inits{JGC} \fnm{Javier} \snm{Gonzalez-Castillo}}
+\author[
+addressref={aff7},
+%
+email={chrisgor@stanford.edu}
+]{\inits{KJG} \fnm{Krzysztof J.} \snm{Gorgolewski}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -120,11 +170,60 @@ email={earl@ohsu.edu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \address[id=aff1]{%
-  \orgname{Oregan Health \& Science University},
+  \orgname{Oregon Health \& Science University},
   \city{Portland},
-  \street{1 club St},
-  \postcode{90270},
+  \street{3181 SW Sam Jackson Park Road},
+  \postcode{97239},
   \postcode{Oregon},
+  \cny{USA}
+}
+\address[id=aff2]{%
+  \orgname{University of Greifswald},
+  \city{Greifswald},
+  \street{Domstraße 11},
+  \postcode{17489},
+  %
+  \cny{Germany}
+}
+\address[id=aff3]{%
+  \orgname{Duke Institute for Brain Sciences},
+  \city{Durham},
+  \street{308 Research Drive, LSRC M051},
+  \postcode{27708},
+  %
+  \cny{USA}
+}
+\address[id=aff4]{%
+  \orgname{Department of Psychology and Neuroscience, Unviersity of Colorado},
+  \city{Boulder},
+  \street{Muenzinger D244, 345 UCB},
+  \postcode{80309},
+  %
+  \cny{USA}
+}
+\address[id=aff5]{%
+  \orgname{Institute of Cognitive Neuroscience, University College London},
+  \city{London},
+  \street{17 Queen Square},
+  \postcode{WC1N 3AR},
+  %
+  \cny{United Kingdom}
+}
+\address[id=aff6]{%
+  \orgname{Section on Functional Imaging Methods, Laboratory of Brain and
+Cognition, National Institute of Mental Health},
+  \city{Bethedsa},
+  \street{Building 10, Room 1D80, 10 Center Dr.~MSC 1148},
+  \postcode{20892},
+  \postcode{Maryland},
+  \cny{USA}
+}
+\address[id=aff7]{%
+  \orgname{Department of Psychology, Stanford University},
+  \city{Stanford},
+  \street{Jordan Hall, Building 420, 450 Serra Mall},
+  \postcode{94305},
+  \postcode{California},
   \cny{USA}
 }
 
@@ -173,8 +272,8 @@ email={earl@ohsu.edu}
 
 %\vskip1ex
 
-%\projectURL{\url{http://github.com/hcp\_nipype/hackathon}}
-%\projectURL{http://github.com/hcp\_nipype/hackathon}
+%\projectURL{\url{https://github.com/ericearl/hcp2nipype-hack2015/}}
+%\projectURL{https://github.com/ericearl/hcp2nipype-hack2015/}
 
 % MSC classifications codes, if any
 %\begin{keyword}[class=AMS]
@@ -189,13 +288,13 @@ email={earl@ohsu.edu}
 
 \end{frontmatter}
 
-%{\sffamily\bfseries\fontsize{10}{12}\selectfont Project URL: \url{http://github.com/hcp\_nipype/hackathon}}
+%{\sffamily\bfseries\fontsize{10}{12}\selectfont Project URL: \url{https://github.com/ericearl/hcp2nipype-hack2015/}}
 
 %%% Import the body from pandoc formatted text
 \section{Introduction}\label{introduction}
 
-To convert the Human Connectome Project (HCP) Minimal Preprocessing
-Pipelines into Nipype code.
+The goal was to convert the Human Connectome Project (HCP) Minimal
+Preprocessing Pipelines into Nipype code.
 
 The HCP minimal preprocessing pipelines \cite{Glasser2013} represent a
 significant advance in image processing pipelines in our time. They
@@ -203,54 +302,72 @@ provide preprocessed volume and surface data in native and atlas space,
 for both functional and structural data. Nipype is an open source
 neuroimaging project for designing imaging pipelines which has been
 around since 2011 and provides many excellent features for provenance
-and reliability of processing pipelines. Together, these two pieces of
-software would allow for a more robust, more flexible synergy of
-pipeline design and operability.
+and reliability of processing pipelines \cite{Gorgolewski2011}.
+Together, these two pieces of software would allow for a more robust,
+more flexible synergy of pipeline design and operability.
 
 \section{Approach}\label{approach}
 
 The first goal was to train the would-be Nipype developers on the Nipype
-python standards for writing and running interfaces. Distributing this
-knowledge from two experts to nine novices over two days was not an easy
-beginning task. Once trained, the plan was to implement the HCP scripts
-into Nipype interfaces from the top-level inward to the sub-level
-scripts. The secondary goal was to make these sub-level scripts more
-flexible and require less specific scans to run the pipelines. The
-collection of nine ultimate pipelines to implement were with or without
-T1s or T2s and with or without Fieldmap or Reverse-Phase-Encode EPIs as
-seen in the below table.
+python standards for writing and running interfaces. Once trained, the
+plan was to implement the HCP scripts into Nipype interfaces from the
+top-level inward to the sub-level scripts. The secondary goal was to
+make these sub-level scripts more flexible and require less specific
+scans to run the pipelines. The collection of nine ultimate pipelines to
+implement were with or without T1s or T2s and with or without Fieldmap
+or Reverse-Phase-Encode EPIs as seen in Table \ref{pipetable}.
 
 \begin{table*}[t!]
-\caption{\label{paramtable}This is the caption for the table.}
+\caption{\label{pipetable}Nine pipelines to be implemented.}
 \begin{tabular}{l l l l l}
  \hline\noalign{\smallskip}
-          EPI & T1 & T2 & Diffusion Field Map & Reverse Phase Encode EPI \\
-    \noalign{\smallskip}
+  EPI & T1 & T2 & Diffusion Field Map & Reverse Phase Encode EPI \\
     \hline\noalign{\smallskip}
-          N & N & N & 1 & 0 \\
-          N & N & 0 & 1 & 0 \\
-          N & 0 & N & 1 & 0 \\
-          N & N & N & 0 & N \\
-          N & N & 0 & 0 & N \\
-          N & 0 & N & 0 & N \\
-          N & N & N & 0 & 0 \\
-          N & N & 0 & 0 & 0 \\
-          N & 0 & N & 0 & 0 \\
+  N & N & N & 1 & 0 \\
+  N & N & 0 & 1 & 0 \\
+  N & 0 & N & 1 & 0 \\
+  N & N & N & 0 & N \\
+  N & N & 0 & 0 & N \\
+  N & 0 & N & 0 & N \\
+  N & N & N & 0 & 0 \\
+  N & N & 0 & 0 & 0 \\
+  N & 0 & N & 0 & 0 \\
   \noalign{\smallskip}\hline
 \end{tabular}
 \end{table*}
 
 \section{Results}\label{results}
 
-The scope of the project was too big for two days of on and off coding,
-even among eleven developers. However, a collaborative team of
-interested Nipype developers were trained and are ready to continue
-collaborating across seven institutions on a vastly beneficial project
-to all of our work.
+Conceptually these goals sounded reasonable enough to do all HCP scripts
+at once during the hackathon, but the learning and additional setup time
+was not accounted for, so the scope of the project was too big for two
+days of on and off coding, even among our eleven developers.
+Distributing Nipype knowledge from two experts to nine novices over two
+days was not an easy beginning task, but most of the novices had gained
+knowledge of Nipype usage by the end of the hackathon. Some work began
+during the hackathon converting HCP scripts into Nipype pipelines,
+however not much progress was made due to the unanticipated large scope
+of work. The second day, an epiphany came about that the original goal,
+as stated, would have only involved making five top-level wrappers for
+the five HCP top-level scripts. This also slowed some progress. The
+secondary goal of generalizing the HCP scripts was discussed, but not
+thoroughly explored or documented. There has only been some progress in
+generalization I am aware of in the Damien Fair, PA-C, PhD, Neuroimaging
+Lab at OHSU. This turnout of developers during an open hackathon is
+encouraging and demonstrates the importance of trying to fuse these two
+systems (Nipype and the HCP scripts) to work together. Work on the
+repository halted after the hackathon, but the team is still available.
 
 \section{Conclusions}\label{conclusions}
 
-This is where the conclusions go.
+More work is needed to truly contribute back to the HCP
+Pipelines\footnote{\url{https://github.com/Washington-University/Pipelines}}.
+The greatest achievement of the hackathon project was forming a
+collaborative team of interested Nipype developers who were trained and
+are ready to continue collaborating across seven institutions. Future
+work will continue trying to achieve the original goals as stated, but
+may need an organizer to hold the team accountable to deadlines. To get
+involved with this project, please contact Eric Earl, earl@ohsu.edu.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -261,13 +378,13 @@ This is where the conclusions go.
 \begin{backmatter}
 
 \section*{Availability of Supporting Data}
-More information about this project can be found at: \url{http://github.com/hcp\_nipype/hackathon}. Further data and files supporting this project are hosted in the \emph{GigaScience} repository REFXXX.
+More information about this project can be found at: \url{https://github.com/ericearl/hcp2nipype-hack2015/}. Further data and files supporting this project are hosted in the \emph{GigaScience} repository REFXXX.
 
 \section*{Competing interests}
 None
 
 \section*{Author's contributions}
-EE wrote the software and the report.
+EE wrote the report, EE and all other authors wrote the software.
 
 \section*{Acknowledgements}
 The authors would like to thank the organizers and attendees of the 2015
