@@ -14,7 +14,7 @@ author:
 
 - initials: DD 
   surname: Demeter
-  firstname: Damion 
+  firstname: Damion V.
   email: demeter@ohsu.edu
   affiliation: aff1
 
@@ -50,7 +50,7 @@ author:
   
 - initials: MR
   surname: Reddan
-  firstname: Marianne
+  firstname: Marianne C.
   email: marianne.reddan@colorado.edu
   affiliation: aff4
   
