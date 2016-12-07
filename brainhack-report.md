@@ -138,7 +138,7 @@ contrib: EE wrote the report, EE and all other authors wrote the software.
   
 bibliography: brainhack-report
 
-gigascience-ref: REFXXX
+gigascience-ref: \href{http://gigadb.org/dataset/100223}{doi:10.5524/100223}
 ...
 
 #Introduction
